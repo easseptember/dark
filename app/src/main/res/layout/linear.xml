@@ -108,10 +108,11 @@
 
 
     <Button
+        android:onClick="doApps"
         android:text="Apps"
         android:layout_width="wrap_content"
         android:layout_height="35dp"
-        android:id="@+id/button"
+        android:id="@+id/appsButton"
         android:background="@color/colorAccent"
         android:layout_weight="1"
         android:textColor="#FFF"

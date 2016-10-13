@@ -30,6 +30,9 @@ public class Utils {
 
 
     }
+    public String getInfo(){
+        return "";
+    }
 
 
 }
