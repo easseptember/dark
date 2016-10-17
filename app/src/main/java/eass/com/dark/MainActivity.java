@@ -12,6 +12,8 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.Map;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -31,6 +33,14 @@ public class MainActivity extends AppCompatActivity {
         Log.i("main", "info");
         Log.e("main", "error");
         Log.d("main", "debug");
+        /**
+         * ============================================================================
+         * 读取文件信息
+         * ============================================================================
+         */
+        Map<?, ?> map = Utils.getInfo(MainActivity.this);
+        myPhone.setText(map.get("val0").toString());
+        password.setText(map.get("val1").toString());
 
 
 
@@ -61,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
                     */
                     CheckBox checkSaveInfo = (CheckBox) findViewById(R.id.checkSaveInfo);
                     if(checkSaveInfo.isChecked()){
-                        boolean result = Utils.saveInfos(phoneNumber, myPassword);
+                        boolean result = Utils.saveInfos(MainActivity.this, phoneNumber, myPassword);
                         if(result){
                             Intent intent2 = new Intent();
                             intent2.setClass(MainActivity.this, My.class);//方法2  跳转
