@@ -1,6 +1,7 @@
 package eass.com.dark;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -38,9 +39,19 @@ public class MainActivity extends AppCompatActivity {
          * 读取文件信息
          * ============================================================================
          */
-        Map<?, ?> map = Utils.getInfo(MainActivity.this);
-        myPhone.setText(map.get("val0").toString());
-        password.setText(map.get("val1").toString());
+
+//        Map<?, ?> map = Utils.getInfo(MainActivity.this);
+//        myPhone.setText(map.get("val0").toString());
+//        password.setText(map.get("val1").toString());
+        /**
+         * ============================================================================
+         * SP 读取文件信息  defvalue 取不到值 为 ""
+         * ============================================================================
+         */
+        SharedPreferences sp = getSharedPreferences("config", 0);
+        myPhone.setText(sp.getString("username", "").toString());
+        password.setText(sp.getString("password", "").toString());
+
 
 
 
@@ -71,7 +82,17 @@ public class MainActivity extends AppCompatActivity {
                     */
                     CheckBox checkSaveInfo = (CheckBox) findViewById(R.id.checkSaveInfo);
                     if(checkSaveInfo.isChecked()){
-                        boolean result = Utils.saveInfos(MainActivity.this, phoneNumber, myPassword);
+                        //boolean result = Utils.saveInfos(MainActivity.this, phoneNumber, myPassword);
+                        //SharedPreferences 存储xml 获取  数据操作
+
+                            SharedPreferences sp = getSharedPreferences("config", 0);
+                            SharedPreferences.Editor editor = sp.edit();
+                            editor.putString("username", phoneNumber);
+                            editor.putString("password", myPassword);
+                            boolean result = editor.commit();
+
+
+
                         if(result){
                             Intent intent2 = new Intent();
                             intent2.setClass(MainActivity.this, My.class);//方法2  跳转

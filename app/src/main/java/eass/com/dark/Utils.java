@@ -1,10 +1,13 @@
 package eass.com.dark;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.os.Environment;
 
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
+
 
 /**
  * @author Eass September<15522280@qq.com>
@@ -18,12 +21,13 @@ public class Utils {
      * @param   userName
      * @param   password
      * @return  boolean
-     * @description 保存信息到文件
+     * @description 保存信息到文件[IO]
      *
      */
     public static boolean saveInfos(Context context, String userName, String password){
         try {
-            String path = context.getFilesDir().getPath();
+            //String path = context.getFilesDir().getPath();//路径data 下
+            String path = Environment.getExternalStorageDirectory().getPath();
             String  info = userName + "##" + password;
             File    file = new File(path, "info.txt");
             FileOutputStream fos = new FileOutputStream(file);
@@ -42,11 +46,12 @@ public class Utils {
      *
      * @param  context
      * @return Map
-     * @description 读取信息文件
+     * @description 读取信息文件[IO]
      */
     public static Map<String, String> getInfo(Context context) {
         try {
-            String path = context.getFilesDir().getPath();
+            //String path = context.getFilesDir().getPath();//路径data 下
+            String path = Environment.getExternalStorageDirectory().getPath();
             File file  = new File(path, "info.txt");
             FileInputStream fis = new FileInputStream(file);
             BufferedReader br = new BufferedReader(new InputStreamReader(fis));
@@ -65,6 +70,9 @@ public class Utils {
         }
 
     }
+
+
+
 
 
 }
