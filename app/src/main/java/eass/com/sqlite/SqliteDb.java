@@ -11,7 +11,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class SqliteDb extends SQLiteOpenHelper {
 
     public SqliteDb(Context context) {
-        super(context, "dark.db", null, 4);
+        super(context, "dark.db", null, 5);
     }
 
     /**
@@ -32,7 +32,8 @@ public class SqliteDb extends SQLiteOpenHelper {
      */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        String sql = "alter table info add password varchar(20)";
+        //String sql = "alter table info add password varchar(20)";
+        String sql = "alter table info add money varchar(120)";
         db.execSQL(sql);
     }
 }

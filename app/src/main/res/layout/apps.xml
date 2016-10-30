@@ -4,9 +4,15 @@
     android:layout_height="match_parent">
 
     <Button
-        android:text="Button"
+        android:text="database"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="showSome"
         android:id="@+id/showSomeButton" />
+    <Button
+        android:text="listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="showListView"
+        android:id="@+id/listview" />
 </LinearLayout>

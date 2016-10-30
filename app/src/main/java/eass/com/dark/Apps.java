@@ -1,6 +1,7 @@
 package eass.com.dark;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.support.v7.widget.ViewStubCompat;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import eass.com.sqlite.SqliteDb;
@@ -85,12 +87,14 @@ public class Apps extends AppCompatActivity {
         //---------------update----------------//
         /*
         ContentValues values = new ContentValues();
-        values.put("name", "wzq");
-        values.put("password", "wangzhiqiang");
-        int info = db.update("info", values, "id=?", new String[]{"10"});
+        values.put("name", "ab");
+        values.put("password", "775544");
+        values.put("money", "100");
+        int info = db.update("info", values, "id>? and id<?", new String[]{"7", "11"});
         Toast.makeText(this, "更新的行数是"+info, Toast.LENGTH_SHORT).show();
         */
         //---------------select----------------//
+        /*
         Cursor cursor = db.query("info", new String[]{"password"}, "id=?", new String[]{"9"},null, null, null);
 
         if(cursor != null && cursor.getCount()>0){
@@ -100,13 +104,39 @@ public class Apps extends AppCompatActivity {
                 System.out.println("password:"+password);
             }
         }
+        */
+        //---------------数据库事务   失败自动回滚----------------//
+        db.beginTransaction(); //事务开启
+        try{
+            db.execSQL("update info set money=money-10 where id=?", new Object[]{"9"});
+
+
+            db.execSQL("update info set money=money+10 where id=?", new Object[]{"10"});
+
+            //int i = 10/0;//遇错误中断
+
+            db.setTransactionSuccessful();
+        }catch (Exception e){
+            Toast.makeText(getApplicationContext(), "服务器忙", Toast.LENGTH_SHORT).show();
+        }finally {
+            db.endTransaction();//关闭事务
+        }
+
+
+
+
         db.close();
 
 
 
         //Toast.makeText(this, "apps", Toast.LENGTH_SHORT).show();
     }
-
+    public void showListView(View v){
+        Intent intent2 = new Intent();
+        intent2.setClass(getApplicationContext(), MyList.class);//方法2  跳转
+        startActivity(intent2);
+        Toast.makeText(getApplicationContext(), "listView", Toast.LENGTH_SHORT).show();
+    }
 
 
 }
