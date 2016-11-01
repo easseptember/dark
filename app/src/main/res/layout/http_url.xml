@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/http_url_line"
+        >
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_weight=".90"
+            android:layout_height="wrap_content"
+            android:hint="输入网址"
+            android:id="@+id/http_url_uri"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_weight=".10"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:onClick="showHttpUrlInfo"
+            />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/http_url_line"
+        android:layout_marginTop="5dp"
+        android:textColor="#ff0000"
+        android:id="@+id/http_url_view"
+        />
+
+
+
+
+
+</RelativeLayout>

@@ -135,8 +135,13 @@ public class Apps extends AppCompatActivity {
         Intent intent2 = new Intent();
         intent2.setClass(getApplicationContext(), MyList.class);//方法2  跳转
         startActivity(intent2);
-        Toast.makeText(getApplicationContext(), "listView", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), "listView", Toast.LENGTH_SHORT).show();
     }
-
+    public void showHttpUrl(View v){
+        Intent intent2 = new Intent();
+        intent2.setClass(getApplicationContext(), HttpUrl.class);//方法2  跳转
+        startActivity(intent2);
+        //Toast.makeText(getApplicationContext(), "listView", Toast.LENGTH_SHORT).show();
+    }
 
 }

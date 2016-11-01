@@ -15,4 +15,10 @@
         android:layout_height="wrap_content"
         android:onClick="showListView"
         android:id="@+id/listview" />
+    <Button
+        android:text="httpurlconnection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="showHttpUrl"
+        android:id="@+id/httpurl" />
 </LinearLayout>

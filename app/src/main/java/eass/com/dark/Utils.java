@@ -70,6 +70,19 @@ public class Utils {
         }
 
     }
+    public static String readStream(InputStream in) throws Exception{
+        ByteArrayOutputStream byteArrayInputStream = new ByteArrayOutputStream();
+        int len = -1;
+        byte[] bytes = new byte[1024];
+
+        while ((len=in.read(bytes))!=-1){
+            byteArrayInputStream.write(bytes, 0, len);
+        }
+        in.close();
+        String s = new String(byteArrayInputStream.toByteArray());
+
+        return s;
+    }
 
 
 
