@@ -21,20 +21,87 @@
             android:layout_width="wrap_content"
             android:layout_weight=".10"
             android:layout_height="wrap_content"
-            android:text="Submit"
+            android:text="Submit_url"
             android:onClick="showHttpUrlInfo"
+            android:id="@+id/http_url_urisub"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_weight=".10"
+            android:layout_height="wrap_content"
+            android:text="Submit_img"
+            android:onClick="showHttpUrlInfo"
+            android:id="@+id/http_url_imgsub"
             />
     </LinearLayout>
-
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/http_url_line"
-        android:layout_marginTop="5dp"
-        android:textColor="#ff0000"
-        android:id="@+id/http_url_view"
-        />
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
 
+            android:layout_marginTop="5dp"
+            android:textColor="#ff0000"
+            android:id="@+id/http_url_view"
+            />
+
+    </ScrollView>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/http_url_line"
+        >
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/http_url_img"
+            />
+
+    </ScrollView>
+
+
+    <!--HTTPCLIENT-->
+    <RelativeLayout
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/http_url_line">
+        <ImageView
+            android:id="@+id/http_url_lines"
+            android:layout_width="match_parent"
+            android:background="@color/colorAccent"
+            android:layout_height="3dp" />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="useraname"
+            android:id="@+id/http_url_username"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/http_url_username"
+            android:hint="password"
+            android:id="@+id/http_url_password"
+            />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_weight=".10"
+            android:layout_height="wrap_content"
+            android:text="Submit_HttpClient"
+            android:layout_below="@+id/http_url_password"
+            android:onClick="submitHttpClient"
+            android:id="@+id/http_url_httpclient"
+            />
+        <ImageView
+            android:layout_below="@id/http_url_httpclient"
+            android:layout_width="match_parent"
+            android:background="@color/colorAccent"
+            android:layout_height="3dp" />
+    </RelativeLayout>
 
 
 
