@@ -1,0 +1,29 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+
+RewriteRule ^init$ index.php?m=hongguan&c=index&a=init
+RewriteRule ^about$ index.php?m=hongguan&c=index&a=about
+RewriteRule ^news$ index.php?m=hongguan&c=index&a=news
+RewriteRule ^business$ index.php?m=hongguan&c=index&a=business
+RewriteRule ^join$ index.php?m=hongguan&c=index&a=join
+RewriteRule ^cases$ index.php?m=hongguan&c=index&a=cases
+RewriteRule ^partner$ index.php?m=hongguan&c=index&a=partner
+
+
+RewriteRule ^picdet-([0-9]+)-([0-9]+).html$ index.php?m=hongguan&c=index&a=picdet&cid=$1&did=$2
+RewriteRule ^writedet-([0-9]+)-([0-9]+).html$ index.php?m=hongguan&c=index&a=writedet&cid=$1&did=$2
+RewriteRule ^jobdet-([0-9]+)-([0-9]+).html$ index.php?m=hongguan&c=index&a=jobdet&cid=$1&did=$2
+
+
+RewriteRule ^about-([0-9]+)-([0-9]+)\.html$ index.php?m=hongguan&c=index&a=about&cid=$1&page=$2
+RewriteRule ^news-([0-9]+)-([0-9]+)\.html$ index.php?m=hongguan&c=index&a=news&cid=$1&page=$2
+RewriteRule ^business-([0-9]+)-([0-9]+)\.html$ index.php?m=hongguan&c=index&a=business&cid=$1&page=$2
+RewriteRule ^cases-([0-9]+)-([0-9]+)\.html$ index.php?m=hongguan&c=index&a=cases&cid=$1&page=$2
+RewriteRule ^join-([0-9]+)-([0-9]+)\.html$ index.php?m=hongguan&c=index&a=join&cid=$1&page=$2
+
+
+
+
+ 
